@@ -1,0 +1,29 @@
+{
+  "name": "git-wrapper-cli",
+  "version": "0.0.1",
+  "description": "git command cli wrapper",
+  "author": "nino01",
+  "license": "MIT",
+  "scripts": {
+    "prepare": "tsc",
+    "build": "tsc",
+    "version": "ts-node ./src/index.ts -- version",
+    "exec": "ts-node ./src/index.ts"
+  },
+  "bin": {
+    "gitw": "build/index.js"
+  },
+  "dependencies": {
+    "command-line-args": "^5.1.1",
+    "command-line-usage": "^6.1.0",
+    "fs-extra": "^7.0.1",
+    "inquirer": "^7.1.0"
+  },
+  "devDependencies": {
+    "@types/inquirer": "^6.5.0",
+    "@types/node": "^10.12.1",
+    "ts-node": "^7.0.1",
+    "tslib": "^1.9.3",
+    "typescript": "^3.7.3"
+  }
+}
