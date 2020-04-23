@@ -49,7 +49,6 @@ class Main {
   
   run() {
     const cfg = commandLineArgs(this.paramDef, { partial: true }) as MainConfig;
-
     const exec = this.commandMap.get(cfg.command);
     if (exec != null) {
       exec().then(()=>

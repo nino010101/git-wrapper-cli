@@ -1,7 +1,8 @@
 import * as commandLineArgs from 'command-line-args';
 import * as commandLineUsage from 'command-line-usage';
 import { prompt, QuestionCollection } from 'inquirer'
-import { exec, execSync } from 'child_process';
+import { execSync } from 'child_process';
+import { HandleConfig, Settings } from "./utils/handle-config"
 
 type CommitConfig = {
     add?: string[]
@@ -61,6 +62,22 @@ export class CommandCommit {
     }
 
     private async run(options: CommitConfig): Promise<void> {
+        // configの読み出し
+        const settings: Settings = new HandleConfig().read();
+        let choices: string[] = [];
+        if(settings.commitType && settings.commitType.length > 0){
+            choices = [...settings.commitType]; 
+        }else{
+            choices = [
+                'feat',
+                'fix',
+                'docs',
+                'style',
+                'refactor',
+                'test',
+                'chore'
+            ]
+        }
 
         // commitメッセージなどの取得
         // ブランチの設定
@@ -73,15 +90,7 @@ export class CommandCommit {
                 type: 'list',
                 name: 'type',
                 message: 'コミットの種類を選択してください :',
-                choices: [
-                    'feat',
-                    'fix',
-                    'docs',
-                    'style',
-                    'refactor',
-                    'test',
-                    'chore'
-                ]
+                choices
             },
             {
                 type: 'input',

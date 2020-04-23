@@ -1,0 +1,5 @@
+{
+  "githubToken": "",
+  "branchType": ["branch1", "branch2"],
+  "commitType": ["commit1", "commit2","commit3"]
+}
