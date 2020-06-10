@@ -1,6 +1,6 @@
 {
   "name": "git-wrapper-cli",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "git command cli wrapper",
   "author": "nino01",
   "license": "MIT",
@@ -10,7 +10,8 @@
     "version": "ts-node ./src/index.ts -- version",
     "exec": "ts-node ./src/index.ts",
     "installer": "./scripts/init.sh",
-    "releasePR": "./scripts/release.sh"
+    "releasePR": "./scripts/release.sh",
+    "createTag": "./scripts/createTag.sh"
   },
   "bin": {
     "gitw": "build/index.js"
