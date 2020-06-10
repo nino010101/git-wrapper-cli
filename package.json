@@ -9,7 +9,8 @@
     "build": "tsc",
     "version": "ts-node ./src/index.ts -- version",
     "exec": "ts-node ./src/index.ts",
-    "installer": "./scripts/init.sh"
+    "installer": "./scripts/init.sh",
+    "releasePR": "./scripts/release.sh"
   },
   "bin": {
     "gitw": "build/index.js"
