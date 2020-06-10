@@ -25,9 +25,10 @@ if [ -n "${origin_diff}" ]; then
 fi
 
 # version update
-newv=`yarn --no-git-tag-version version`
+read -p "new version? :" newversion;
+newv=`yarn --no-git-tag-version version --new-version $newversion`
 echo;
-echo "release version -> $newv"
+echo "release version -> $newversion"
 # check if who wants to create release pull request
 read -p "create release pull request? (Y/n): " answer;
 if [ "${answer}" = "y" ] || [ "${answer}" = "Y" ]; then
